@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">weather</string>
+    <string name="api_key">1136c52cc565ee73349ec17c96d3bfc4</string>
+    <string name="_123">123</string>
+    <string name="city_name">City name</string>
+    <string name="get_weather">Get weather</string>
+    <string name="toast_fail_text">Lost internet connection</string>
+    <string name="toast_wrong_city">Wrong city</string>
+</resources>
