@@ -5,14 +5,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.weather.weatherApi.WeatherApi
+import com.example.weather.weatherApi.WeatherApiService
 import com.example.weather.weatherApi.WeatherItem
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Response
 
 
-class MainViewModel() : ViewModel() {
+class MainViewModel(val weatherApiService: WeatherApiService) : ViewModel() {
     val currentWeatherItem = MutableLiveData<WeatherItem>()
 
     private val _getCity = MutableLiveData<Boolean>()
@@ -33,7 +33,7 @@ class MainViewModel() : ViewModel() {
 
     fun getCurrentWeatherItem(cityName: String, apiKey: String) {
         viewModelScope.launch {
-            WeatherApi.retrofitService.getWeatherFromCity(
+            weatherApiService.getWeatherFromCity(
                 cityName,
                 apiKey
             ).enqueue(object : retrofit2.Callback<WeatherItem> {

@@ -7,15 +7,23 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.weather.databinding.ActivityMainBinding
+import com.example.weather.di.components.DaggerMainViewModelComponent
 
 class MainActivity : AppCompatActivity() {
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        val dagger =  DaggerMainViewModelComponent.builder().build()
         super.onCreate(savedInstanceState)
+        val factory  = dagger.getMainViewModelFactory()
 
         val binding: ActivityMainBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        val viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+
+
+        val viewModel = ViewModelProvider(this,factory).get(MainViewModel::class.java)
         binding.viewModel = viewModel
 
         viewModel.getCity.observe(this, Observer {
