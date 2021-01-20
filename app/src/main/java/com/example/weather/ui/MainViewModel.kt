@@ -1,4 +1,4 @@
-package com.example.weather
+package com.example.weather.ui
 
 import android.util.Log
 import androidx.lifecycle.LiveData

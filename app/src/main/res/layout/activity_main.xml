@@ -5,14 +5,14 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.weather.MainViewModel" />
+            type="com.example.weather.ui.MainViewModel" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".MainActivity">
+        tools:context=".ui.MainActivity">
 
         <EditText
             android:id="@+id/city_edit_text"

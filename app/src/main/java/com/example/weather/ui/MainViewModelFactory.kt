@@ -1,6 +1,5 @@
-package com.example.weather
+package com.example.weather.ui
 
-import android.app.Activity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.weather.weatherApi.WeatherApiService

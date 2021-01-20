@@ -1,4 +1,4 @@
-package com.example.weather
+package com.example.weather.ui
 
 import android.os.Bundle
 import android.widget.Toast
@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.weather.R
 import com.example.weather.databinding.ActivityMainBinding
 import com.example.weather.di.components.DaggerMainViewModelComponent
 
@@ -19,7 +20,9 @@ class MainActivity : AppCompatActivity() {
         val factory  = dagger.getMainViewModelFactory()
 
         val binding: ActivityMainBinding =
-            DataBindingUtil.setContentView(this, R.layout.activity_main)
+            DataBindingUtil.setContentView(this,
+                R.layout.activity_main
+            )
 
 
 
