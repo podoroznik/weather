@@ -1,9 +1,9 @@
-package com.example.weather.weatherApi
+package data.source.retrofit
 
-import retrofit2.Call
+import data.entitiy.WeatherItemJson
+import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
-
 
 
 interface WeatherApiService {
@@ -12,6 +12,6 @@ interface WeatherApiService {
         @Query("q") city: String,
         @Query("appid") apiKey: String,
         @Query("units") units: String = "metric"
-    ): Call<WeatherItem>
+    ): Single<WeatherItemJson>
 }
 

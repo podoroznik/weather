@@ -1,7 +1,7 @@
-package com.example.weather.weatherApi
+package data.entitiy
 
 
-data class WeatherItem(
+data class WeatherItemJson(
     val cod: Int, // 200
     val dt: Long, // 1560350645
     val main: Main,

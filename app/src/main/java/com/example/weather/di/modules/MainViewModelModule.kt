@@ -1,8 +1,9 @@
 package com.example.weather.di.modules
 
 import com.example.weather.di.scopes.ActivityScope
+import com.example.weather.domain.usecase.GetAllWeatherUseCase
+import com.example.weather.domain.usecase.GetWeatherByCityNameUseCase
 import com.example.weather.ui.MainViewModelFactory
-import com.example.weather.weatherApi.WeatherApiService
 import dagger.Module
 import dagger.Provides
 
@@ -11,8 +12,8 @@ import dagger.Provides
 class MainViewModelModule() {
     @ActivityScope
     @Provides
-    fun provideMainViewModelFactory(weatherApiService: WeatherApiService): MainViewModelFactory {
-        return MainViewModelFactory(weatherApiService)
+    fun provideMainViewModelFactory(getAllWeatherUseCaseFactory: GetAllWeatherUseCase,getWeatherByCityNameUseCase: GetWeatherByCityNameUseCase): MainViewModelFactory {
+        return MainViewModelFactory(getWeatherByCityNameUseCase,getAllWeatherUseCaseFactory)
     }
 
 }
