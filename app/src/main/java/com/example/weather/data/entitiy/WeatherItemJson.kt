@@ -1,4 +1,4 @@
-package data.entitiy
+package com.example.weather.data.entitiy
 
 
 data class WeatherItemJson(

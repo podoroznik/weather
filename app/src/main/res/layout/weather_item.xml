@@ -7,19 +7,44 @@
             name="weatherItem"
             type="com.example.weather.domain.entity.WeatherItem" />
     </data>
-    
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:set_temp="@{weatherItem.temp}"
-        tools:text="@string/_123" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="200dp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/city_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            app:set_city_name="@{weatherItem.cityName}" />
+
+        <TextView
+            android:id="@+id/temp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:set_temp="@{weatherItem.temp}"
+            tools:text="@string/_123" />
+
+        <TextView
+            android:id="@+id/min_temp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/_123"
+            android:textSize="24sp"
+            app:set_min_temp="@{weatherItem.tempMin}" />
+
+        <TextView
+            android:id="@+id/max_temp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/_123"
+            android:textSize="24sp"
+            app:set_max_temp="@{weatherItem.tempMax}" />
+    </LinearLayout>
 </layout>

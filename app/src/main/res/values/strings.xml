@@ -4,6 +4,11 @@
     <string name="_123">123</string>
     <string name="city_name">City name</string>
     <string name="get_weather">Get weather</string>
-    <string name="toast_fail_text">Lost internet connection</string>
+    <string name="toast_fail_text">Wrong city or lost internet connection</string>
     <string name="toast_wrong_city">Wrong city</string>
+    <string name="temp">temp = </string>
+    <string name="min_temp">min temp = </string>
+    <string name="max_temp">max temp = </string>
+    <string name="city">city name = </string>
+    <string name="last_requests">Last Requests</string>
 </resources>

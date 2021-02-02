@@ -1,6 +1,6 @@
-package data.source.retrofit
+package com.example.weather.data.source.retrofit
 
-import data.entitiy.WeatherItemJson
+import com.example.weather.data.entitiy.WeatherItemJson
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query

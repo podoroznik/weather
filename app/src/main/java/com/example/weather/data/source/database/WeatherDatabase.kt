@@ -1,12 +1,12 @@
-package data.source.database
+package com.example.weather.data.source.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import data.entitiy.WeatherItemDB
+import com.example.weather.data.entitiy.WeatherItemDB
 
-@Database(entities = [WeatherItemDB::class], version = 2, exportSchema = false)
+@Database(entities = [WeatherItemDB::class], version = 3, exportSchema = false)
 abstract class WeatherDatabase : RoomDatabase() {
 
     abstract val dao: WeatherDatabaseDao
@@ -24,6 +24,7 @@ abstract class WeatherDatabase : RoomDatabase() {
                         context.applicationContext,
                         WeatherDatabase::class.java, "weather_table"
                     ).fallbackToDestructiveMigration().build()
+                    INSTANCE = instance
                 }
                 return instance
             }

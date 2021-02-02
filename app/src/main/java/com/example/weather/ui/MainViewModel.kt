@@ -20,16 +20,6 @@ class MainViewModel(val getWeatherByCityNameUseCase: GetWeatherByCityNameUseCase
     val getCity: LiveData<Boolean>
         get() = _getCity
 
-    private val _onFailStatus = MutableLiveData<Boolean>()
-
-    val onFailStatus: LiveData<Boolean>
-        get() = _onFailStatus
-
-
-    private val _onWrongCity = MutableLiveData<Boolean>()
-
-    val onWrongCity: LiveData<Boolean>
-        get() = _onWrongCity
 
     fun getCurrentWeatherItem(cityName: String) {
         currentWeatherItem =  getWeatherByCityNameUseCase.getWeatherByCityName(cityName)
@@ -39,13 +29,7 @@ class MainViewModel(val getWeatherByCityNameUseCase: GetWeatherByCityNameUseCase
         _getCity.value = true
     }
 
-    fun onFailToastShown() {
-        _onFailStatus.value = false
-    }
 
-    fun onWrongCityToastShown() {
-        _onWrongCity.value = false
-    }
 
     fun onObserverFinish() {
         _getCity.value = false

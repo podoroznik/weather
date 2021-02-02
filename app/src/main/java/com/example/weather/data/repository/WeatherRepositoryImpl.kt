@@ -1,14 +1,13 @@
-package data.repository
+package com.example.weather.data.repository
 
-import android.annotation.SuppressLint
 import android.content.Context
 import com.example.weather.R
+import com.example.weather.data.entitiy.WeatherItemDB
+import com.example.weather.data.source.database.WeatherDatabaseDao
+import com.example.weather.data.source.retrofit.WeatherApiService
 import com.example.weather.domain.entity.WeatherItem
 import com.example.weather.domain.repository.WeatherRepository
 import com.example.weather.utils.convertFromJSONItemToItem
-import data.entitiy.WeatherItemDB
-import data.source.database.WeatherDatabaseDao
-import data.source.retrofit.WeatherApiService
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -16,13 +15,10 @@ import io.reactivex.schedulers.Schedulers
 
 class WeatherRepositoryImpl(val weatherDatabaseDao: WeatherDatabaseDao, val context: Context) :
     WeatherRepository {
-    override fun getAllWeather(): Flowable<List<WeatherItem>> {
-        return weatherDatabaseDao.getAllData().flatMap { Flowable.fromIterable(it) }.map {
-            WeatherItem(it.temp, it.tempMax, it.tempMin, it.name)
-        }.toList().toFlowable()
+    override fun getAllWeather(): Flowable<List<WeatherItemDB>> {
+        return weatherDatabaseDao.getAllData()
     }
 
-    @SuppressLint("CheckResult")
     override fun getWeatherByCityName(
         weatherApiService: WeatherApiService,
         name: String

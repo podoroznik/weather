@@ -1,10 +1,10 @@
-package data.source.database
+package com.example.weather.data.source.database
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import data.entitiy.WeatherItemDB
+import com.example.weather.data.entitiy.WeatherItemDB
 import io.reactivex.Flowable
 
 @Dao

@@ -1,8 +1,8 @@
 package com.example.weather.utils
 
+import com.example.weather.data.entitiy.WeatherItemDB
+import com.example.weather.data.entitiy.WeatherItemJson
 import com.example.weather.domain.entity.WeatherItem
-import data.entitiy.WeatherItemDB
-import data.entitiy.WeatherItemJson
 
 fun WeatherItemJson.convertFromJSONItemToDBItem(): WeatherItemDB {
     val weatherItemDB = WeatherItemDB()
@@ -22,6 +22,16 @@ fun WeatherItemJson.convertFromJSONItemToItem(): WeatherItem {
     )
 }
 
+fun WeatherItemDB.convertFromItemDBToItem(): WeatherItem{
+    val weatherItem = WeatherItem()
+    weatherItem.temp = this.temp
+    weatherItem.tempMin = this.tempMin
+    weatherItem.tempMax = this.tempMax
+    weatherItem.cityName= this.name
+    return weatherItem
+}
+
+
 fun WeatherItem.convertFromItemToDBItem(): WeatherItemDB{
     val weatherItemDB = WeatherItemDB()
     weatherItemDB.temp = this.temp
@@ -29,4 +39,13 @@ fun WeatherItem.convertFromItemToDBItem(): WeatherItemDB{
     weatherItemDB.tempMax = this.tempMax
     weatherItemDB.name = this.cityName
     return weatherItemDB
+}
+
+
+fun  List<WeatherItemDB>.convertFromListItemToListDBItem(): MutableList<WeatherItem>? {
+    val list1 = mutableListOf<WeatherItem>()
+    for(item in this){
+        list1.add(item.convertFromItemDBToItem())
+    }
+    return list1
 }

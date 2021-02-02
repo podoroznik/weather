@@ -6,7 +6,7 @@ import com.example.weather.domain.usecase.GetWeatherByCityNameUseCase
 import com.example.weather.domain.usecase.SaveWeatherItemUseCase
 import dagger.Module
 import dagger.Provides
-import data.source.retrofit.WeatherApiService
+import com.example.weather.data.source.retrofit.WeatherApiService
 
 @Module
 class UseCaseModule {
